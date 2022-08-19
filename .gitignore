@@ -22,13 +22,3 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-
-/src/HelloTest.js
-/src/App.js
-
-/src/App.test.js
-
-/src/HelloTest.css
-/src/App.css
-
-/src/logo.svg
