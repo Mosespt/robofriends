@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import SearchBox from '../components/SearchBox.js'
 import CardList from '../components/CardList.js';
-// import {robots} from '../src/robots.js';
 import Scroll from '../components/Scroll.js'
+import ErrorBoundary from '../components/ErrorBoundary.js'
+// import {robots} from '../src/robots.js';
 import './MyApp.css'
 
 class MyApp extends Component {
@@ -30,18 +31,19 @@ class MyApp extends Component {
 			return robot.name.toLowerCase().includes(searchfield.toLowerCase());
 		});
 		return (!robots.length) ?
-			<h1 className="tc">Loading...</h1> :
-			(
-				<div className="tc">
-					<h1 className="f1">RoboFriends</h1>
-					<SearchBox searchChange={this.OnSearchChange} />
-					<Scroll>
+		<h1 className="tc">Loading...</h1> : 
+		(
+			<div className="tc">
+				<h1 className="f1">RoboFriends</h1>
+				<SearchBox searchChange={this.OnSearchChange} />
+				<Scroll>
+					<ErrorBoundary>
 						<CardList robots={filterRobot} />
-					</Scroll>
-				</div>
-			);
+					</ErrorBoundary>
+				</Scroll>
+			</div>
+		);
 	}
-		
 }
 
 export default MyApp;
